@@ -1,0 +1,217 @@
+﻿🔥💩
+SEE: EverNote - SimTexUni2020, EverNote - BorBal RevEng, gDocs, Libre Office Calc, Post-It_Notes.txt, ToDoList.txt; STU EduMat MS-DOS, STU EduMat MS EXE; Devel - MsExeExplorer;
+
+
+
+Heuristics:
+"This program cannot be run in DOS mode."
+
+
+
+Header Length:
+OE EXE 28 bytes
+NE EXE ?
+OS/2 EXE 64 bytes (MS OS/2, IBM OS/2)
+LE EXE ?
+LX EXE ?
+PE EXE ?
+
+
+
+NOTE:
+ * the file size encoded in the DOS header describes only the DOS portion of the file
+ * the DOS application program image ... position given by the formatted-header size ... length determined by ((pages - 1) * 512) + bytes-last-page - (formatted-header size * 16)
+
+
+
+Terminology:
+Load Module, Program Image, DOS Application Program
+Section
+Segment as in Segment:Offset vs. Segment as in .TEXT, .DATA
+Offset, Position, Location, Address
+Formatted Header
+Absolute vs. Relative
+In-File vs. In-Memory
+Run File
+Symbolic References
+Expanded Executable, Extended Executable
+
+AKA's
+Header, 'Formatted Header', FmtHdr, ..., MS EXE 'OE' HEADER
+'Relocation Table', 'Relocation Pointer Table', RlcPtrTbl, ?"e_lfarlc" ... "(Structure) Element L?(Long/Location?) F?(File?) A?(Address?) Relocation ((Pointer)Table)"?
+"...resident part of the program..." "...the resident portion of the program..."
+"...control and relocation information..."
+"...the load module..."
+"...the DOS application program image..."
+Expanded EXE, Extended EXE, Expanded Executable, Extended Executable
+
+?
+Size of 'Formatted Header' ==>> EXE_OE_HEADER->e_cparhdr
+Size of 'Relocation Pointer Table' ==>> EXE_OE_HEADER->e_crlc
+Size of 'Load Module'/'Program Image' ==>> EXE_OE_HEADER->e_cp AND EXE_OE_HEADER->e_cblp
+Offset to EXE_OE_HEADER ==>> 0 (0x00)
+Offset to 'Relocation Pointer Table' ==>> EXE_OE_HEADER->e_lfarlc
+Offset to 'DOS stub program' ==>> Offset to 'Relocation Pointer Table' + Size of 'Relocation Pointer Table'
+Offset to Offset to "...OS/2 portion of the file"
+? Point-of-Impact ? Offset to {SS, SP, IP, CS} EXE_OE_HEADER->{e_ss, e_sp, e_ip, e_cs}
+
+
+╔══════════════╗
+║ OE Header    ║
+╚══════════════╝
+╔══════════════╗
+║ NE Header    ║
+╚══════════════╝
+╔══════════════╗
+║ LE Header    ║
+╚══════════════╝
+╔══════════════╗
+║ LX Header    ║
+╚══════════════╝
+╔══════════════╗
+║ PE Header    ║
+╚══════════════╝
+╔══════════════╗
+║ PE32 Header  ║
+╚══════════════╝
+╔══════════════╗
+║ PE32+ Header ║
+╚══════════════╝
+╔══════════════╗
+║ PE64 Header  ║
+╚══════════════╝
+╔═══════════════════════════╗
+║ Relocation Pointer Table  ║
+╚═══════════════════════════╝
+╔═══════════════════╗
+║ DOS Stub-Program  ║
+╚═══════════════════╝
+
+╔════════════╗
+║ OE Header  ║
+╠════════════╣
+╟────────────╢
+║ e_magic    ║
+╟────────────╢
+║ e_cblp     ║
+╟────────────╢
+║ e_cp       ║
+╟────────────╢
+║ e_crlc     ║
+╟────────────╢
+║ e_cparhdr  ║
+╟────────────╢
+║ e_minalloc ║
+╟────────────╢
+║ e_maxalloc ║
+╟────────────╢
+║ e_ss       ║
+╟────────────╢
+║ e_sp       ║
+╟────────────╢
+║ e_csum     ║
+╟────────────╢
+║ e_ip       ║
+╟────────────╢
+║ e_cs       ║
+╟────────────╢
+║ e_lfarlc   ║
+╟────────────╢
+║ e_ovno     ║
+╟────────────╢
+╚════════════╝
+
+╔════════════╗
+║ NE Header  ║
+╠════════════╣
+║ OE Header  ║
+╠════════════╣
+╟────────────╢
+║ e_res[4]   ║
+╟────────────╢
+║ e_oemid    ║
+╟────────────╢
+║ e_oeminfo  ║
+╟────────────╢
+║ e_res2[10] ║
+╟────────────╢
+║ e_lfanew   ║
+╟────────────╢
+╚════════════╝
+
+╔════════════╗
+║ NE Header  ║
+╠════════════╣
+║ OE Header  ║
+╠════════════╣
+╟────────────╢
+║ e_res[0]   ║
+╟────────────╢
+║ e_res[1]   ║
+╟────────────╢
+║ e_res[2]   ║
+╟────────────╢
+║ e_res[3]   ║
+╟────────────╢
+║ e_oemid    ║
+╟────────────╢
+║ e_oeminfo  ║
+╟────────────╢
+║ e_res2[0]  ║
+╟────────────╢
+║ e_res2[1]  ║
+╟────────────╢
+║ e_res2[2]  ║
+╟────────────╢
+║ e_res2[3]  ║
+╟────────────╢
+║ e_res2[4]  ║
+╟────────────╢
+║ e_res2[5]  ║
+╟────────────╢
+║ e_res2[6]  ║
+╟────────────╢
+║ e_res2[7]  ║
+╟────────────╢
+║ e_res2[8]  ║
+╟────────────╢
+║ e_res2[9]  ║
+╟────────────╢
+║ e_lfanew   ║
+╟────────────╢
+╚════════════╝
+
+
+
+╔
+╚
+╗
+╝
+═
+║
+
+┌
+└
+┐
+┘
+─
+│
+
+╦
+╩
+╠
+╣
+╬
+
+┬
+┴
+┤
+├
+┼
+
+╤
+╧
+╟
+╢ 	
+
+https://www.wikiwand.com/en/Box-drawing_character

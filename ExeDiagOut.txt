@@ -1,0 +1,42 @@
+
+Size-Of:
+	MS EXE OE Header
+	Relocation Pointer Table
+	DOS Stub-Program
+	Load Image (Program Image)
+	Extra Information
+
+Tests:
+	Default Header Size
+	Nothing Between 'Formatted Headere' and 'Relocation Pointer Table'
+	Nothing Between 'Relocation Pointer Table' and 'Load Image'
+
+
+
+Count of Entries in 'Relocation Pointer Table'
+
+
+
+
+
+Description(s):
+DOS Executable																						D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-dos.trid.xml
+OS/2 Executable																						D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-os2.trid.xml
+OS/2 Executable (no DOS stub)																		D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-os2-no-dos-stub.trid.xml
+OS/2 Presentation Manager Executable																D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-os2-pm.trid.xml
+Win16 NE executable																					D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-win16.trid.xml
+Win64 Executable																					D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-win64.trid.xml
+Win32 Executable																					D:\SimTexUni-EduMat\MS_EXE\triddefs_xml\defs\e\exe-win.trid.xml
+MS-DOS executable, LE for MS-DOS, DOS4GW DOS extender (embedded)									D:\SimTexUni-EduMat\MS_EXE\file-master\magic\Magdir\msdos
+
+
+
+
+1234567890
+1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------
+----------------------------------------------------------------------------------------------------
+==========
+====================================================================================================
